@@ -11,7 +11,7 @@ class SentenceType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    sentences = graphene.List(SentenceType, search=graphene.String())
+    sentences = graphene.List(SentenceType, id=graphene.String())
 
     def resolve_sentences(self, info, id=None, **kwargs):
         if id:
