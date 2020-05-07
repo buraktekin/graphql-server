@@ -13,10 +13,10 @@ class SentenceType(DjangoObjectType):
 class Query(graphene.ObjectType):
     sentences = graphene.List(SentenceType, search=graphene.String())
 
-    def resolve_sentences(self, info, search=None, **kwargs):
-        if search:
+    def resolve_sentences(self, info, id=None, **kwargs):
+        if id:
             filter = (
-                Q(id__icontains=search)
+                Q(id__icontains=id)
             )
             return Sentence.objects.filter(filter)
         return Sentence.objects.all()
