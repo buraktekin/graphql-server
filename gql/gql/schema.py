@@ -1,6 +1,6 @@
 import graphene
 
-import links.schema as sc
+import sentences.schema as sc
 
 
 class Query(sc.Query, graphene.ObjectType):
